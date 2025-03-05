@@ -29,7 +29,17 @@ services:
             - db_data:/var/lib/mysql
         networks:
             - my_network
-
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: symfony-admin
+        environment:
+            PMA_HOST: db  # Указываем имя сервиса MySQL
+            PMA_USER: symfony  # Имя пользователя для подключения
+            PMA_PASSWORD: symfony  # Пароль для подключения
+        ports:
+            - "8080:80"  # phpMyAdmin будет доступен на порту 8080
+        networks:
+            - my_network
 volumes:
     db_data:
 

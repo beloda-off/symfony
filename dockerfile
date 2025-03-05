@@ -36,6 +36,8 @@ FROM php:8.1-fpm
 
    RUN composer require doctrine/doctrine-migrations-bundle
 
+   RUN composer update
+
    # Открываем порт 9000 для PHP-FPM
    EXPOSE 8000
 
