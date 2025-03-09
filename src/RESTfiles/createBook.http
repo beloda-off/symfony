@@ -1,0 +1,10 @@
+### Создание новой книги с привязкой к авторам
+POST http://localhost:8000/book
+Content-Type: application/json
+
+{
+    "title": "Название Книги",
+    "year": 2003,
+    "publisher":1,
+    "authorIds": [15, 16]
+}

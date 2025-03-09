@@ -1,0 +1,8 @@
+### Создание нового автора
+POST http://localhost:8000/author
+Content-Type: application/json
+
+{
+    "firstName": "Сергей",
+    "lastName": "Кожегетович"
+}
