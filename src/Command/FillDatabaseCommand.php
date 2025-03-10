@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class FillDatabaseCommand extends Command
 {
-    protected static $defaultName = 'fill-database';
+    protected static $defaultName = 'FillDatabase';
 
     private EntityManagerInterface $entityManager;
 
@@ -59,7 +59,7 @@ class FillDatabaseCommand extends Command
             for ($j = 1; $j <= rand(2,5); $j++) {
                 $book = new Book();
                 $book->setTitle('Книга ' . ($i * 2 + $j - 1));
-                $book->addAutor($author);
+                $book->addAuthor($author);
                 $book->setYear(2000 + $i);
                 $randomPublisher = $arrPublisher[array_rand($arrPublisher)];
                 $book->setPublisher($randomPublisher);

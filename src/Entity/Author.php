@@ -24,12 +24,12 @@ class Author
     /**
      * @var Collection<int, Book>
      */
-    #[ORM\ManyToMany(targetEntity: Book::class, mappedBy: 'autor')]
-    private Collection $autor;
+    #[ORM\ManyToMany(targetEntity: Book::class, mappedBy: 'author')]
+    private Collection $author;
 
     public function __construct()
     {
-        $this->autor = new ArrayCollection();
+        $this->book = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -66,23 +66,28 @@ class Author
      */
     public function getAutor(): Collection
     {
-        return $this->autor;
+        return $this->author;
     }
 
-    public function addAutor(Book $autor): static
+    public function addAutor(Book $author): static
     {
-        if (!$this->autor->contains($autor)) {
-            $this->autor->add($autor);
-            $autor->addAutor($this);
+        if (!$this->author->contains($author)) {
+            $this->author->add($author);
+            $author->addAutor($this);
         }
 
         return $this;
     }
 
+    public function getBooks(): Collection
+    {
+        return $this->book;
+    }
+
     public function removeAutor(Book $autor): static
     {
-        if ($this->autor->removeElement($autor)) {
-            $autor->removeAutor($this);
+        if ($this->author->removeElement($author)) {
+            $author->removeAutor($this);
         }
 
         return $this;

@@ -24,4 +24,14 @@ class BookRepository extends ServiceEntityRepository
         $this->_em->remove($book);
         $this->_em->flush();
     }
+
+    public function findAllBooksWithDetails()
+    {
+        return $this->createQueryBuilder('b')
+            ->select('b, a, p') // выбираем книгу (b), автора (a) и издателя (p)
+            ->innerJoin('b.publisher', 'p') // связываем с издателем
+            ->innerJoin('b.author', 'a') // связываем с авторами
+            ->getQuery()
+            ->getResult();
+    }
 }

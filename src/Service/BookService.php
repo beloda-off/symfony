@@ -6,6 +6,7 @@ use App\Repository\BookRepository;
 use App\Repository\AuthorRepository;
 use App\Repository\PublisherRepository;
 use App\DTO\BookDTO;
+use App\DTO\BookListDTO;
 use App\Entity\Book;
 
 use Exception;
@@ -61,5 +62,34 @@ class BookService
         }
 
         $this->bookRepository->remove($book);
+    }
+
+    public function getAllBooks(): array
+    {
+        $books = $this->bookRepository->findAllBooksWithDetails();
+    
+        $bookDTOs = [];
+    
+        foreach ($books as $book) {
+            // Получаем список всех авторов книги
+            $authors = $book->getAuthor(); 
+            $authorLastNames = [];
+    
+            // Проходим по каждому автору и получаем фамилии
+            foreach ($authors as $author) {
+                $authorLastNames[] = $author->getLastName(); // Получаем фамилии
+            }
+    
+            // Добавляем DTO для книги
+            $bookDTOs[] = new BookListDTO(
+                $book->getTitle(),
+                $authorLastNames, // Передаем массив фамилий
+                $book->getPublisher()->getName()
+                
+
+            );
+        }
+    
+        return $bookDTOs;
     }
 }

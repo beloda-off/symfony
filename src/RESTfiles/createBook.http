@@ -1,10 +1,13 @@
 ### Создание новой книги с привязкой к авторам
+@id_author_1 = 89
+@id_author_2 = 91
+@id_publisher =47
 POST http://localhost:8000/book
 Content-Type: application/json
 
 {
     "title": "Название Книги",
     "year": 2003,
-    "publisher":1,
-    "authorIds": [15, 16]
+    "publisher":{{id_publisher}},
+    "authorIds": [{{id_author_1}}, {{id_author_2}}]
 }

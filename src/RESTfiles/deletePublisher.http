@@ -1,4 +1,4 @@
 ### ID книги
-@id =1
-### Удаление книги по ID
-DELETE http://localhost:8000/book/{{$id}}
+@id =48
+### Удаление издателя по ID
+DELETE http://localhost:8000/publisher/{{id}}
