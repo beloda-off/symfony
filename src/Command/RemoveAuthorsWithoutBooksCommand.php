@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class RemoveAuthorsWithoutBooksCommand extends Command
 {
-    protected static $defaultName = 'remove-authors-without-books';
+    protected static $defaultName = 'removeAuthorsWithoutBooks';
 
     private EntityManagerInterface $entityManager;
 

@@ -1,8 +1,8 @@
-@id = 47 
+@id = 73 
 PATCH http://localhost:8000/publisher/{{id}}
 Content-Type: application/json
 
 {
-    "name": "Updated Publisher",
-    "address": "123 New Address"
+    "name": "Новое издательство",
+    "address": "Площадь Карла Фаберже 8ББ"
 }

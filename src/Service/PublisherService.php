@@ -13,9 +13,10 @@ class PublisherService
         $this->publisherRepository = $publisherRepository;
     }
 
-    public function updatePublisher(int $id, PublisherDTO $publisherDTO): ?Publisher
+    public function updatePublisher(int $id, PublisherDTO $publisherDTO): PublisherDTO
     {
-        return $this->publisherRepository->updateFieldsById($id, $publisherDTO->name, $publisherDTO->address);
+        $this->publisherRepository->updateFieldsById($id, $publisherDTO->name, $publisherDTO->address);
+        return $publisherDTO;
     }
 
     public function deletePublisher(int $id): void

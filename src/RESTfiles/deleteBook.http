@@ -1,5 +1,5 @@
 
 ### ID книги
-@id =18
+@id =265
 ### Удаление книги по ID
 DELETE http://localhost:8000/book/{{id}}

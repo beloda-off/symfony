@@ -1,4 +1,4 @@
 ### ID книги
-@id =48
+@id =76
 ### Удаление издателя по ID
 DELETE http://localhost:8000/publisher/{{id}}

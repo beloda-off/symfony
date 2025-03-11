@@ -45,7 +45,7 @@ class BookService
     
         // Добавляем авторов к книге
         foreach ($authors as $author) {
-            $book->addAutor($author);
+            $book->addAuthor($author);
         }
     
         // Сохраняем книгу в репозитории
@@ -85,8 +85,6 @@ class BookService
                 $book->getTitle(),
                 $authorLastNames, // Передаем массив фамилий
                 $book->getPublisher()->getName()
-                
-
             );
         }
     
